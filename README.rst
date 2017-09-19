@@ -57,6 +57,7 @@ Usage
 If you intend using a json configuration file, add json to the object arguments:
 
 .. code-block::
+
     ezcfg = EZedCfg(default_configuration, path_to_config,'json')
 
 
