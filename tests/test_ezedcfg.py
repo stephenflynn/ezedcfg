@@ -130,7 +130,7 @@ def test_invalid_yaml(setup_invalid_yaml):
 
 def test_invalid_json(setup_invalid_json):
     if pre_35:
-        with pytest.raises(IOError):
+        with pytest.raises(ValueError):
             ez = setup_invalid_json
             ez.load()
     else:
