@@ -4,10 +4,15 @@
 """Tests for `ezedcfg` package."""
 
 import pytest
-from json.decoder import JSONDecodeError
 from yaml.scanner import ScannerError
 from ezedcfg import EZedCfg, UnrecognizedFormatError
 
+# Before python 3.5 json.decoder raised an IOError rather than a JSONDecodeError
+pre_35 = False
+try:
+    from json.decoder import JSONDecodeError
+except ImportError:
+    pre_35 = True
 
 @pytest.fixture()
 def setup_valid_yaml(tmpdir):
@@ -124,6 +129,12 @@ def test_invalid_yaml(setup_invalid_yaml):
 
 
 def test_invalid_json(setup_invalid_json):
-    with pytest.raises(JSONDecodeError):
-        ez = setup_invalid_json
-        ez.load()
+    if pre_35:
+        with pytest.raises(IOError):
+            ez = setup_invalid_json
+            ez.load()
+    else:
+        with pytest.raises(JSONDecodeError):
+            ez = setup_invalid_json
+            ez.load()
+
