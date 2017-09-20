@@ -3,6 +3,6 @@
 """Top-level package for EZedCfg."""
 
 __author__ = """Stephen Flynn"""
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 from .ezedcfg import EZedCfg, UnrecognizedFormatError
