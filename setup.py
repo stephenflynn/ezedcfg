@@ -25,7 +25,7 @@ test_requirements = [
 
 setup(
     name='ezedcfg',
-    version='0.1.4',
+    version='0.1.5',
     description="A basic configuration loading package",
     long_description=readme + '\n\n' + history,
     author="Stephen Flynn",
