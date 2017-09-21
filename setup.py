@@ -29,7 +29,7 @@ setup(
     description="A basic configuration loading package",
     long_description=readme + '\n\n' + history,
     author="Stephen Flynn",
-    author_email='stephen@flynn',
+    author_email='dev@stephenflynn.net',
     url='https://github.com/stephenflynn/ezedcfg',
     packages=find_packages(include=['ezedcfg']),
     include_package_data=True,
