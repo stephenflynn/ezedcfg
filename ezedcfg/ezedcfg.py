@@ -43,7 +43,7 @@ class EZedCfg:
         if self.file_format == 'json':
             self.custom_config = json.loads(config_string)
         elif self.file_format == 'yaml':
-            self.custom_config = yaml.load(config_string)
+            self.custom_config = yaml.safe_load(config_string)
         else:
             raise UnrecognizedFormatError(
                 'File format ({}) not recognised'.format(str(self.file_format)))

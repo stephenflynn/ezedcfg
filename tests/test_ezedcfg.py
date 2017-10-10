@@ -5,6 +5,7 @@
 
 import pytest
 from yaml.scanner import ScannerError
+from yaml.constructor import ConstructorError
 from ezedcfg import EZedCfg, UnrecognizedFormatError
 
 # Before python 3.5 json.decoder raised an IOError rather than a JSONDecodeError
@@ -67,6 +68,22 @@ def setup_invalid_yaml(tmpdir):
 
     return ez
 
+@pytest.fixture()
+def setup_dangerous_yaml(tmpdir):
+    """Returns a list containing three Vector instances"""
+    test_config_data = """
+    test: 1
+    test2: !!python/object/apply:subprocess.check_output ['ls']
+    """
+
+    default_dict = {'test': 'testing', 'test2': 'still testing', 'test3': 123}
+
+    test_cfg = tmpdir.mkdir("sub").join('test_config.yml')
+    test_cfg.write(test_config_data)
+
+    ez = EZedCfg(default_dict, str(test_cfg))
+
+    return ez
 
 @pytest.fixture()
 def setup_invalid_json(tmpdir):
@@ -127,6 +144,10 @@ def test_invalid_yaml(setup_invalid_yaml):
         ez = setup_invalid_yaml
         ez.load()
 
+def test_dangerous_yaml(setup_dangerous_yaml):
+    with pytest.raises(ConstructorError):
+        ez = setup_dangerous_yaml
+        ez.load()
 
 def test_invalid_json(setup_invalid_json):
     if pre_35:
