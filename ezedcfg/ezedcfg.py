@@ -35,7 +35,6 @@ class EZedCfg:
             dict: A dict containing the data in the supplied configuration file.
 
         """
-        exception_msg = False
 
         with open(self.config_path, 'r') as config_file:
             config_string = config_file.read()
