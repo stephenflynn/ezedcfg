@@ -25,7 +25,7 @@ test_requirements = [
 
 setup(
     name='ezedcfg',
-    version='0.1.6',
+    version='0.1.7',
     description="A basic configuration loading package",
     long_description=readme + '\n\n' + history,
     author="Stephen Flynn",
@@ -42,7 +42,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
