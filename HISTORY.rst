@@ -2,7 +2,7 @@
 History
 =======
 
-0.1.7 (2017-09-20)
+0.1.7 (2018-03-11)
 ------------------
 * Removed Python 3.3 support
 * Upgraded dependencies
