@@ -2,6 +2,10 @@
 History
 =======
 
+0.1.8 (2018-03-11)
+------------------
+* Added pyup.io config file.
+
 0.1.7 (2018-03-11)
 ------------------
 * Removed Python 3.3 support
